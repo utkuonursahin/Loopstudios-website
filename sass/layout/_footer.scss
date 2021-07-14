@@ -1,0 +1,64 @@
+@use "../abstracts" as abs;
+@use "../base" as b;
+
+.footer{
+    background-color: abs.$color-black;
+
+    &__left{
+        grid-column: 1 / 2;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    &__social{
+        display: flex;
+        gap: 2rem;
+        margin-left: auto;
+
+        @media only screen and (max-width:b.$bp-800){
+            margin-left: 0;
+            margin-top: 4rem;
+            align-self: center;
+        }
+        &-icon{
+            height: 3.5rem;
+            width: 3.5rem;
+            fill: abs.$color-white;
+
+            &:hover{
+                opacity: .8;
+            }
+        }
+    }
+
+    &__right{
+        grid-column: 2 / 3;
+        display: flex;
+        flex-direction: column;
+        justify-self: flex-end;
+        gap: 3rem;
+    }
+
+    &__nav{
+        list-style: none;
+        display: flex;
+        gap: 5rem;
+
+        @media only screen and (max-width:b.$bp-1000){
+            gap: 2rem;
+        }
+
+        @media only screen and (max-width:b.$bp-800){
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    &__copyright{
+        color: abs.$color-gray-light;
+        margin-left: auto;
+        font-size: 1.4rem;
+    }
+}

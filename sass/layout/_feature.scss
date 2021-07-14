@@ -1,0 +1,61 @@
+@use "../abstracts" as abs;
+@use "../base" as b;
+
+.features{
+
+    &__img{
+        grid-row: 2 / 7;
+        grid-column: 1 / 7;
+        @media only screen and (max-width:b.$bp-1200){
+            padding: 1rem 3rem;
+            align-items: center;
+            order: 2;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__card{
+        grid-column: 6 / -1;
+        grid-row: 4 / 7;
+        display: grid;
+        grid-template-rows: repeat(2,1fr);
+        align-items: end;
+        padding: 4rem 7rem;
+        background-color: abs.$color-white;
+
+        @media only screen and (max-width:b.$bp-1200){
+            margin-top: 3rem;
+            padding: 0rem;
+            text-align: center;
+            align-items: center;
+            order: 1;
+        }
+
+        &-heading{
+            font-size: 5rem;
+            font-family: abs.$font-secondary;
+            font-weight: 300;
+            text-transform: uppercase;
+            color: abs.$color-black;
+            @media only screen and (max-width:b.$bp-800){
+                font-size: 4rem;
+            }
+
+        }
+
+        &-context{
+            color: abs.$color-gray;
+            font-size: 1.8rem;
+            word-spacing: .6rem;
+            letter-spacing: 1.1px;
+
+            @media only screen and (max-width:b.$bp-800){
+                font-size: 1.6rem;
+            }
+        }
+    }
+}

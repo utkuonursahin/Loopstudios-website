@@ -1,0 +1,88 @@
+@use "../abstracts" as abs;
+@use "../base" as b;
+
+.header{
+    background-image: url("../images/desktop/image-hero.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @media only screen and (max-width:b.$bp-900){
+        background-image: url("../images/mobile/image-hero.jpg");
+    }
+
+    &__nav{
+        grid-row: 1 / 2;
+        grid-column: main-start / main-end;
+        padding: 8rem 2rem;
+        display: flex;
+        align-items: center;
+
+        &-list{
+            list-style: none;
+            display: flex;
+            margin-left: auto;
+            gap: 5rem;
+
+            @media only screen and (max-width:b.$bp-1000){
+                display: none;
+            }
+
+        }
+
+        &-menu{
+            opacity: 0;
+            
+            @media only screen and (max-width:b.$bp-1000){
+                opacity: 1;
+                margin-left: auto;
+            }
+
+            & .hamburger-icon{
+                transition: all .2s ease-in-out;
+                &:hover{
+                    transform: scale(1.2);
+                    opacity: .7;
+                }
+            }
+        }
+    }
+
+    &__hero{
+        grid-row: 2 / 3;
+        grid-column: main-start / main-end;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        align-items: center;
+        margin-bottom: 3rem;
+
+        @media only screen and (max-width:b.$bp-800){
+            display: flex;
+            justify-content: center;
+        }
+
+        &-text{
+            grid-column: 1 / 2;
+            border: 1px solid white;
+            text-transform: uppercase;
+            font-size: 6rem;
+            font-family: abs.$font-secondary;
+            font-weight: 300;
+            color: abs.$color-white;
+            padding: 6rem 9rem;
+
+            @media only screen and (max-width:b.$bp-1200){
+                font-size: 4.5rem;
+                padding: 4rem 6rem;
+            }
+
+            @media only screen and (max-width:b.$bp-1000){
+                font-size: 4rem;
+                padding: 3rem 5rem;
+            }
+
+            @media only screen and (max-width:b.$bp-400){
+                padding: 5rem 6rem;
+            }
+        }
+    }
+}
